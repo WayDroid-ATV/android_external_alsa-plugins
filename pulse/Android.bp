@@ -1,0 +1,109 @@
+// external/alsa-plugins/Android.mk
+//
+// Copyright 2008 Wind River Systems
+//
+
+cc_library_shared {
+    name: "libasound_module_pcm_pulse",
+
+    arch: {
+        arm: {
+            instruction_set: "arm",
+        },
+    },
+    proprietary: true,
+    relative_install_path: "hw",
+
+    include_dirs: [
+        "external/alsa-lib/include",
+        "external/pulseaudio/src/",
+    ],
+
+    cflags: [
+        "-fPIC",
+        "-DPIC",
+        "-Wno-error",
+    ],
+
+    ldflags: ["-Wl,--no-fatal-warnings"],
+
+    srcs: [
+        "pcm_pulse.c",
+        "pulse.c",
+    ],
+
+    shared_libs: [
+        "libpulse",
+        "libasound",
+    ],
+
+}
+
+cc_library_shared {
+    name: "libasound_module_ctl_pulse",
+
+    arch: {
+        arm: {
+            instruction_set: "arm",
+        },
+    },
+    proprietary: true,
+    relative_install_path: "hw",
+
+    include_dirs: [
+        "external/alsa-lib/include",
+        "external/pulseaudio/src/",
+    ],
+
+    cflags: [
+        "-fPIC",
+        "-DPIC",
+        "-Wno-error",
+    ],
+
+    ldflags: ["-Wl,--no-fatal-warnings"],
+
+    srcs: [
+        "ctl_pulse.c",
+        "pulse.c",
+    ],
+
+    shared_libs: [
+        "libpulse",
+        "libasound",
+    ],
+
+}
+
+cc_library_shared {
+    name: "libasound_module_conf_pulse",
+
+    arch: {
+        arm: {
+            instruction_set: "arm",
+        },
+    },
+    proprietary: true,
+    relative_install_path: "hw",
+
+    include_dirs: [
+        "external/alsa-lib/include",
+        "external/pulseaudio/src/",
+    ],
+
+    cflags: [
+        "-fPIC",
+        "-DPIC",
+        "-Wno-error",
+    ],
+
+    ldflags: ["-Wl,--no-fatal-warnings"],
+
+    srcs: ["conf_pulse.c"],
+
+    shared_libs: [
+        "libpulse",
+        "libasound",
+    ],
+
+}
